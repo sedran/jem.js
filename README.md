@@ -100,3 +100,29 @@ jem.once('BlogPostedEvent', { category : 'Education' }, function (eventName, eve
 	// This code will be called only the first time the event occured.
 });
 ```
+
+Remove Event Handlers!
+===========
+
+#### jem.off(eventName:string)
+###### Remove all event listeners for a specific event type
+
+```javascript
+jem.off('BlogPostedEvent');
+```
+
+#### jem.off(eventName:string, handler:function)
+###### Remove the specific event listener for a specific event type
+
+```javascript
+// Event Handler:
+var mHandler = function (eventName, eventAttributes) {
+	// does some nasty things here
+};
+
+// Register event handler:
+jem.on('HelloEvent', mHandler);
+
+// Unregister event handler
+jem.off('BlogPostedEvent', mHandler);
+```
