@@ -101,7 +101,34 @@ jem.once('BlogPostedEvent', { category : 'Education' }, function (eventName, eve
 });
 ```
 
-Remove Event Handlers!
+Global Event Handler
+===========
+
+You can use '*' as an event name to handle all events with a single handler function.
+
+```javascript
+jem.on('*', function (eventName, eventAttributes) {
+	// All fired events will come here.
+});
+
+jem.on('*', {id : 5}, function (eventName, eventAttributes) {
+	// All fired events with attribute `id = 5` will come here.
+});
+
+// Let's use jem.once
+jem.once('*', function (eventName, eventAttributes) {
+	// The first fired event will come here
+	// And no other event will be handled by this handler
+});
+
+jem.on('*', {id : 5}, function (eventName, eventAttributes) {
+	// The first fired event with attribute `id = 5` will come here.
+	// And no other event will be handled by this handler
+});
+```
+
+
+Remove Event Handlers
 ===========
 
 #### jem.off(eventName:string)
