@@ -1,6 +1,7 @@
 jem.js (Javascript Event Manager)
-=====
-####This is a Javascipt library which helps us writing event driven Javascript code.
+==================================================
+
+This is a Javascipt library which helps us writing event driven Javascript code.
 - No dependencies
 
 Fire an event!
