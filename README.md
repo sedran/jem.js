@@ -7,7 +7,7 @@ This is a Javascipt library which helps us writing event driven Javascript code.
 Fire an event!
 ===========
 
-##### jem.fire(eventName:string)
+#### jem.fire(eventName:string)
 ###### Fire an event without any attribute. The simplest way of firing an event.
 
 ```javascript
