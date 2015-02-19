@@ -124,5 +124,5 @@ var mHandler = function (eventName, eventAttributes) {
 jem.on('HelloEvent', mHandler);
 
 // Unregister event handler
-jem.off('BlogPostedEvent', mHandler);
+jem.off('HelloEvent', mHandler);
 ```
