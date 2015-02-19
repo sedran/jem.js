@@ -161,3 +161,4 @@ TODO List
   - Decision: implement one of `jem.on('A,B', handler)` or `jem.on(['A', 'B'], handler)`
 - Add unit tests
 - Add demo usages
+- Add cancellation method for scheduled event firing
