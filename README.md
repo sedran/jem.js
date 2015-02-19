@@ -18,8 +18,7 @@ jem.fire('RegistrationCompletedEvent');
 jem.fire('MusicStartedEvent');
 ```
 
-jem.fire(eventName:string, attributes:object)
------------------------
+#### jem.fire(eventName:string, attributes:object)
 ###### Fire an event with specific attributes. Event handlers can use this attributes or you can use those attributes to filter events for a specific handler.
 
 ```javascript
@@ -30,8 +29,7 @@ jem.fire('RegistrationCompletedEvent', { username : 'sedran', name : 'Serdar', s
 jem.fire('MusicStartedEvent', { author : 'Metallica', title : 'Am I Evil?' });
 ```
 
-jem.fire(eventName:string, attributes:object, delay:number)
------------------------
+#### jem.fire(eventName:string, attributes:object, delay:number)
 ###### Fire an event with specific attributes after a delay.
 
 ```javascript
@@ -46,8 +44,7 @@ jem.fire('RegistrationCompletedEvent', { username : 'sedran', name : 'Serdar', s
 jem.fire('MusicStartedEvent', { author : 'Metallica', title : 'Am I Evil?' }, 0);
 ```
 
-jem.fire(eventName:string, attributes:object, delay:number, rate:number)
------------------------
+#### jem.fire(eventName:string, attributes:object, delay:number, rate:number)
 ###### Fire an event with specific attributes after a delay with a fixed rate.
 
 ```javascript
@@ -59,8 +56,7 @@ jem.fire('AddToCartEvent', {}, 15 * 60 * 1000, 60 * 1000);
 jem.fire('SendAlertEvent', { title : 'Are you still here?' }, 10000, 10000);
 ```
 
-jem.on(eventName:string, callback:function)
------------------------
+#### jem.on(eventName:string, callback:function)
 ###### Attach an event handler for a specific event
 
 ```javascript
@@ -72,8 +68,7 @@ jem.on('UserRegisteredEvent', function (eventName, eventAttributes) {
 });
 ```
 
-jem.on(eventName:string, filters:object, callback:function)
------------------------
+#### jem.on(eventName:string, filters:object, callback:function)
 ###### Attach an event handler for a specific event which has specific attributes specified as filters.
 
 ```javascript
@@ -82,8 +77,7 @@ jem.on('BlogPostedEvent', { category : 'Education' }, function (eventName, event
 });
 ```
 
-jem.once(eventName:string, callback:function)
------------------------
+#### jem.once(eventName:string, callback:function)
 ###### Attach a one-time event handler for a specific event.
 
 ```javascript
@@ -93,8 +87,7 @@ jem.once('BlogPostedEvent', function (eventName, eventAttributes) {
 });
 ```
 
-jem.once(eventName:string, filters:object, callback:function)
------------------------
+#### jem.once(eventName:string, filters:object, callback:function)
 ###### Attach a one-time event handler for a specific event which has specific attributes specified as filters.
 
 ```javascript
