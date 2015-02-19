@@ -3,6 +3,7 @@ jem.js (Javascript Event Manager)
 
 This is a Javascipt library which helps us writing event driven Javascript code.
 - No dependencies
+- It is not about the DOM. jem.js is for your custom events.
 
 Fire an event!
 ===========
@@ -153,3 +154,10 @@ jem.on('HelloEvent', mHandler);
 // Unregister event handler
 jem.off('HelloEvent', mHandler);
 ```
+
+TODO List
+===========
+- Listening multiple events with single handler
+  - Decision: implement one of `jem.on('A,B', handler)` or `jem.on(['A', 'B'], handler)`
+- Add unit tests
+- Add demo usages
