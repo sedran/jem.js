@@ -56,6 +56,10 @@ jem.fire('AddToCartEvent', {}, 15 * 60 * 1000, 60 * 1000);
 jem.fire('SendAlertEvent', { title : 'Are you still here?' }, 10000, 10000);
 ```
 
+
+Handle the events!
+===========
+
 #### jem.on(eventName:string, callback:function)
 ###### Attach an event handler for a specific event
 
