@@ -121,7 +121,7 @@ jem.once('*', function (eventName, eventAttributes) {
 	// And no other event will be handled by this handler
 });
 
-jem.on('*', {id : 5}, function (eventName, eventAttributes) {
+jem.once('*', {id : 5}, function (eventName, eventAttributes) {
 	// The first fired event with attribute `id = 5` will come here.
 	// And no other event will be handled by this handler
 });
