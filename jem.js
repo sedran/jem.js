@@ -29,12 +29,18 @@ var jem = jem || {};
     };
 	
 	var addHandler = function (eventName, filters, callback, once) {
-		if (!isArray(eventHandlers[eventName])) {
-			eventHandlers[eventName] = [];
+		if (isArray(eventName)) {
+			for (var i = 0; i < eventName.length; i++) {
+				addHandler(eventName, filters, callback, once);
+			}
+		} else {
+			if (!isArray(eventHandlers[eventName])) {
+				eventHandlers[eventName] = [];
+			}
+			
+			var handler = new EventHandler(eventName, filters, callback, once);
+			eventHandlers[eventName].push(handler);
 		}
-		
-		var handler = new EventHandler(eventName, filters, callback, once);
-		eventHandlers[eventName].push(handler);
 	};
 	
 	var checkFilter = function (filters, eventProperties) {
