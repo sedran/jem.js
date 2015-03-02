@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <title>MusicBox Example for jem.js</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -19,16 +19,59 @@
   <body>
 	<div class="container">
 		<h1>Welcome to jem.js!</h1>
+		<h2>This is an example music player that shows jem.js in action.</h2>
+		<h3>Note that this music player is just an example. It doesn't play any music.</h3>
 		
 		<div class="row">
 			<div class="col-md-6">
-				<button class="btn btn-success" onclick="jem.fire('Test1Event')">Fire Test1Event</button>
-				<button class="btn btn-success" onclick="jem.fire('Test2Event')">Fire Test2Event</button>
+				<div class="panel panel-info" id="musicModule">
+					<div class="panel-heading">Listen to the Music</div>
+					<div class="panel-body">
+						<p id="currentMusic"></p>
+						<button class="btn btn-info" id="prevTrack">Prev</button>
+						<button class="btn btn-info" id="startMusic">Start</button>
+						<button class="btn btn-warning" id="stopMusic">Stop</button>
+						<button class="btn btn-info" id="nextTrack">Next</button>
+					</div>
+					<div class="panel-footer">
+						<h4>Track List</h4>
+						<ul id="trackList"></ul>
+					</div>
+				</div>
+				
+				<div class="panel panel-info" id="musicStatusModule">
+					<div class="panel-heading">I am listening MusicStatusChangeEvent</div>
+					<div class="panel-body">
+						<p><b class="text-danger">Music Status: </b><span id="musicStatus">Not Playing</span></p>
+						<p><b class="text-danger">Music Author: </b><span id="musicAuthor"></span></p>
+						<p><b class="text-danger">Music Title: </b><span id="musicTitle"></span></p>
+					</div>
+				</div>
+				
+				<div class="panel panel-info" id="statisticsModule">
+					<div class="panel-heading">This module shows statistics</div>
+					<div class="panel-body">
+						<table class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>Author</th>
+									<th>Title</th>
+									<th># of listens</th>
+								</tr>
+							</thead>
+							<tbody id="stats">
+							
+							</tbody>
+						</table>
+					</div>
+				</div>
 			</div>
 			
 			<div class="col-md-6">
-				<button class="btn btn-success" id="attachTest1">Attach Handler to Test1Event</button>
-				<button class="btn btn-success" id="attachTest2">Attach Handler to Test2Event</button>
+				<div class="panel panel-info" id="globalEventLoggerModule">
+					<div class="panel-heading">This module logs every event</div>
+					<div class="panel-body"></div>
+				</div>
 			</div>
 		</div>
 	</div>
