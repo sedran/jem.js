@@ -115,7 +115,12 @@ jem.on(['UserLoginEvent', 'UserSignupEvent'], function (eventName, eventAttribut
 	// Handle the event
 	$(".username").html(eventAttributes.username);
 });
+```
 
+#### jem.once(eventNames:array, callback:function)
+###### Attach a once time event handler for a list of events
+
+```javascript
 // Handle the one that occurs first
 jem.once(['UserLoginEvent', 'UserSignupEvent'], function (eventName, eventAttributes) {
 	// Handle the event
