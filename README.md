@@ -6,6 +6,123 @@ This is a Javascipt library which helps us writing event driven Javascript code.
 - It is not about the DOM. jem.js is for your custom events.
 - Any kind of contribution is welcome.
 
+### Why Events?
+Using events instead of calling methods reduces coupling.
+
+Assume that you have two modules in your web page which communicates by calling methods of each other. 
+When you want to remove one module from the page, you have to change the code of the other module and test whole page.
+
+With events, however, to remove a module from the page, all you need is to remove the module.
+
+##### Traditional way
+As you can see below, when you want to remove moduleA, you need to update moduleB, too.
+
+```javascript
+var moduleA = (function () {
+	var foo = "foo";
+	var bar = "bar";
+	
+	// some code related to moduleA
+	// ...
+	
+	function updateGUI() {
+		alert("foo: " + foo + ", bar: " + bar);
+	}
+	
+	return {
+		onBarUpdated: function (newValue) {
+			bar = newValue;
+			updateGUI();
+		},
+		
+		onFooUpdated: function (newValue) {
+			foo = newValue;
+			updateGUI();
+		}
+	};
+}());
+
+var moduleB = (function () {
+	var foo = "";
+	var bar = "";
+	
+	// some code related to moduleB
+	// ...
+	
+	return {
+		updateFoo: function (newValue) {
+			foo = newValue;
+			// ...
+			// do something and notify moduleA
+			moduleA.onFooUpdated(foo);
+		},
+		
+		updateBar: function (newValue) {
+			bar = newValue;
+			// ...
+			// do something and notify moduleA
+			moduleA.onBarUpdated(bar);
+		}
+	};
+}());
+```
+
+##### Using events
+Here in this code, you are free to remove any of the modules. There is no moduleA in moduleB and there is no moduleB in moduleA.
+
+```javascript
+var moduleA = (function () {
+	var foo = "foo";
+	var bar = "bar";
+	
+	// some code related to moduleA
+	// ...
+	
+	function updateGUI() {
+		alert("foo: " + foo + ", bar: " + bar);
+	}
+	
+	jem.on('FooUpdated', function (eventName, attributes) {
+		foo = attributes.foo;
+		updateGUI();
+	});
+	
+	jem.on('BarUpdated', function (eventName, attributes) {
+		bar = attributes.bar;
+		updateGUI();
+	});
+	
+	return {
+		// other module methods.
+	};
+}());
+
+var moduleB = (function () {
+	var foo = "";
+	var bar = "";
+	
+	// some code related to moduleB
+	// ...
+	
+	return {
+		updateFoo: function (newValue) {
+			foo = newValue;
+			// ...
+			// do something and fire an event
+			jem.fire('FooUpdated', { foo : foo });
+		},
+		
+		updateBar: function (newValue) {
+			bar = newValue;
+			// ...
+			// do something and fire an event
+			jem.fire('BarUpdated', { bar : bar });
+		}
+	};
+}());
+```
+
+
 Fire an event!
 ===========
 
