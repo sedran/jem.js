@@ -103,6 +103,20 @@ jem.once('BlogPostedEvent', { category : 'Education' }, function (eventName, eve
 });
 ```
 
+Handle multiple events with single handler!
+===========
+
+#### jem.on(eventNames:array, callback:function)
+###### Attach an event handler for a list of events
+
+```javascript
+// Handle both UserLoginEvent and UserSignupEvent with a single callback
+jem.on(['UserLoginEvent', 'UserSignupEvent'], function (eventName, eventAttributes) {
+	// Handle the event
+	$(".username").html(eventAttributes.username);
+});
+
+
 Global Event Handler
 ===========
 
