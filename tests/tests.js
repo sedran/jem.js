@@ -43,3 +43,20 @@ QUnit.test("tc3 - Once Listener Test", function(assert) {
 	
 	assert.equal(triggered, 1, "Handler must be triggered once");
 });
+
+QUnit.test("tc4 - Once Listener with Filters/Attributes Test", function(assert) {
+	var triggered = 0;
+	
+	jem.once('TC4Event', { id: 1 }, function (eventName, eventAttributes) {
+		assert.equal(eventName, 'TC4Event', 'Listening to the correct event name!');
+		triggered++;
+	});
+	
+	jem.fire('TC4Event', {name: 'hello'});
+	jem.fire('TC4Event', {name: 'Serdar', surname: 'Kuzucu'});
+	jem.fire('TC4Event', {id: 1, name: 'abcd'});
+	jem.fire('TC4Event', {color: 'Green', weight: '12gr'});
+	jem.fire('TC4Event', {id: 1, name: 'hello'});
+	
+	assert.equal(triggered, 1, "Handler must be triggered once");
+});
