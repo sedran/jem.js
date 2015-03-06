@@ -31,7 +31,7 @@ var jem = jem || {};
 	var addHandler = function (eventName, filters, callback, once) {
 		if (isArray(eventName)) {
 			for (var i = 0; i < eventName.length; i++) {
-				addHandler(eventName, filters, callback, once);
+				addHandler(eventName[i], filters, callback, once);
 			}
 		} else {
 			if (!isArray(eventHandlers[eventName])) {
