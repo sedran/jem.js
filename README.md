@@ -115,6 +115,12 @@ jem.on(['UserLoginEvent', 'UserSignupEvent'], function (eventName, eventAttribut
 	// Handle the event
 	$(".username").html(eventAttributes.username);
 });
+
+// Handle the one that occurs first
+jem.once(['UserLoginEvent', 'UserSignupEvent'], function (eventName, eventAttributes) {
+	// Handle the event
+	$(".username").html(eventAttributes.username);
+});
 ```
 
 Global Event Handler
