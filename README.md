@@ -115,7 +115,7 @@ jem.on(['UserLoginEvent', 'UserSignupEvent'], function (eventName, eventAttribut
 	// Handle the event
 	$(".username").html(eventAttributes.username);
 });
-
+```
 
 Global Event Handler
 ===========
