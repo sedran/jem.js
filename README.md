@@ -183,8 +183,8 @@ jem.off('HelloEvent', mHandler);
 
 TODO List
 ===========
-- Listening multiple events with single handler
-  - Decision: implement one of `jem.on('A,B', handler)` or `jem.on(['A', 'B'], handler)`
-- Add unit tests
-- Add demo usages
+- ~~Listening multiple events with single handler~~
+  - ~~Decision: implement one of `jem.on('A,B', handler)` or `jem.on(['A', 'B'], handler)`~~
+- ~~Add unit tests~~
+- ~~Add demo usages~~
 - Add cancellation method for scheduled event firing
